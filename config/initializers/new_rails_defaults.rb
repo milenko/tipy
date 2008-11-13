@@ -15,3 +15,9 @@ ActiveSupport.use_standard_json_time_format = true
 # Don't escape HTML entities in JSON, leave that for the #json_escape helper.
 # if you're including raw json in an HTML page.
 ActiveSupport.escape_html_entities_in_json = false
+
+##
+# Pomnuti ovo: Prilikom update-a ne navode se polja koja zapravo nisu menjana
+# cotcha!! Kada zaobidjemo rails-ov setter metodu, on ne registruje da je poromenjena
+# i nece update-ovati bazu. RESENJE: p.attribute_will_change
+ActiveRecord::Base.partial_updates = true

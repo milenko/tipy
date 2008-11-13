@@ -1,0 +1,8 @@
+<li>
+	<h2>
+		<div class="chapter_position">•</div>
+		<%# Rails 2.0 magic: ne mora vise post_path(post) %>
+		<%= link_to post.title, post %>
+	</h2>
+	<p><%= post.body %></p>
+</li>

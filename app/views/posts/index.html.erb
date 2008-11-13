@@ -1,0 +1,6 @@
+<ul class="chapters">
+	<%# Rails 2.0 magic %>
+	<%= render :partial => @posts  %>
+</ul>
+
+<%= link_to 'New post', new_post_path %>

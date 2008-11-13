@@ -1,0 +1,107 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 1em;
+}
+
+body, p, input {
+	font-family: Georgia, serif;
+	font-size: 14px;
+}
+
+h1 {
+	margin-bottom: 1em;
+}
+
+h2 {
+}
+
+h3 {
+	margin-left: 3.8em;
+	border-bottom: 1px solid #aaaaaa;
+}
+
+hr {
+	margin: 2em;
+}
+
+/*
+ * Popunjavanje rupa
+ */
+
+ol, ul, td {
+  font-family: Georgia, serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+p {
+	margin-left: 4em;
+	width: 60%;
+}
+
+/*pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}*/
+:link {
+	color: #000;
+	/*text-decoration: underline;
+	text-decoration-style: dotted;*/
+	text-decoration: none;
+	border-bottom: 1px dotted;
+}
+:visited { color: #666; }
+:link:hover { color: #fff; background-color:#000; }
+
+/*
+ * Fali jedno 20 linija ovde
+ */
+ul.chapters {
+	list-style-type: none;
+}
+
+ul.chapters li {
+	margin-bottom: 1em;
+}
+
+ul.comments {
+	list-style-type: none;
+}
+
+ul.comments li {
+	margin-bottom: 1em;
+}
+
+div.chapter_position {
+	color: #aaaaaa;
+	width: 2em;
+	text-align: right;
+	float: left;
+	padding-right: 1em;
+}
+
+p.teaser {
+	font-size: 1.2em;
+	line-height: 2em;
+	margin-left: 3.8em;
+}
+
+p.revisions span {
+	padding-right: 0.5em;
+}
+
+.commenter {
+	font-weight: bold;
+}
+
+/* Forms */
+
+label {
+	display: block;
+	font-weight: bold;
+}

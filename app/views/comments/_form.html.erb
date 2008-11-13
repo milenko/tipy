@@ -1,0 +1,28 @@
+<% form_for [parent,Comment.new] do |f| -%>
+
+<%= f.hidden_field :commentable_type, :value => parent.class.name %>
+<%= f.hidden_field :commentable_id, :value => parent.id %>
+
+<p>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+</p>
+
+<p>
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+</p>
+
+<p>
+	<%= f.label :blog_url %>
+	<%= f.text_field :blog_url %>
+</p>
+
+<p>
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+</p>
+
+<p><%= submit_tag "Add comment", :disable_with => "adding comment..." %></p>
+
+<% end -%>

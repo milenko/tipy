@@ -1,0 +1,7 @@
+<li>
+	<p>
+		<%= mail_to comment.email, comment.name, :replace_at => " (at) ", :replace_dot => "_dot_",  :encode => "hex", :class => "commenter"  %>
+		said
+	</p>
+	<p><%= comment.body %></p>
+</li>
