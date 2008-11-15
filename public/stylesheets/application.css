@@ -97,6 +97,7 @@ p.revisions span {
 
 .commenter {
 	font-weight: bold;
+	text-decoration: none;
 }
 
 /* Forms */

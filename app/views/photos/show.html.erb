@@ -1,0 +1,30 @@
+<h3>
+	<%= link_to "#{@photo.album.title}'s Photos",
+	 						album_photos_path(@album) %>
+</h3>
+<h2><%= h @photo.title %></h2>
+<p><%= h @photo.description %></p>
+
+<%= image_tag	@photo.public_filename %>
+<br />
+
+<%= link_to 'Edit', edit_album_photo_path(@album,@photo) %> |
+<%= link_to 'Back', album_photos_path(@album) %> |
+<%= link_to 'Delete', album_photo_path(@album,@photo),
+ 											:confirm => 'Are you sure?', 
+											:method => :delete %>
+											
+<% if @photo.has_comments? -%>
+	<li>
+		<h3>Comments</h3>
+		<ul class="comments">
+			<%= render :partial => "comments/comment",
+					   		 :collection => @photo.comments %>
+		</ul>
+	</li>
+<% end -%>
+
+<li>
+	<h3>Add your comment!</h3>
+	<%= render :partial => "comments/form", :locals => {:parent => @photo}  %>
+</li>

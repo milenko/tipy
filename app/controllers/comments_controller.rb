@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   
   ##
-  # /posts/:post_id/comments  
+  # /posts/:post_id/comments
+  # /albums/:album_id/comments
   # /photos/:photo_id/comments
   def create
     # params[:comment][:name]
