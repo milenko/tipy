@@ -3,6 +3,20 @@ class Post < ActiveRecord::Base
   
   has_many :comments, :as => :commentable
   
+  named_scope :recent,
+              lambda { |*args| 
+                {:order => "updated_at DESC",
+                 :conditions => ["updated_at > ?",
+                                 (args.first || 2.weeks.ago).to_s(:db)]
+                }
+              }
+  named_scope :latest, 
+              lambda {|*args|
+                {:order => "updated_at DESC",
+                 :limit => (args.first || 2)
+                }
+              }
+  
   ##
   # Sve funkcionalnosti vezane sa modelom, treba staviti u model
   # cak i ovako relativno jednostavne
