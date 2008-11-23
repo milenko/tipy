@@ -2,10 +2,11 @@ class AllPhotosController < ApplicationController
   # GET /photos
   # GET /photos.xml
   def index
+    #debugger
     @photos = Photo.find_descending
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html #{ render index.html.erb }
       format.xml  { render :xml => @photos }
     end
   end

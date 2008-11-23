@@ -1,25 +1,39 @@
 class PhotosController < ApplicationController
-  before_filter :get_album
+  before_filter :get_album, :except => [:index, :show]
   
   # GET /album/:album_id/photos
   # GET /album/:album_id/photos.xml
+  # GET /photos
   def index
-    @photos = @album.photos
+    if params[:album_id].nil?
+      @photos = Photo.find_descending
+      action = "all_index"
+    else
+      get_album
+      @photos = @album.photos
+      action = "index"
+    end
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :action => action }# index.html.erb
       format.xml  { render :xml => @photos }
     end
   end
 
   # GET /album/:album_id/photos/:id
-  # GET /photos/:photo_id.xml
+  # GET /album/:album_id/photos/:id.xml
+  # GET /photos/:id
   def show
-    # @photo = Photo.find_by_album_id_and_id(params[:album_id],
-    #                                            params[:id],
-    #                                            :include => :album)
+    ##
+    # photos/:id -> albums/:album_id/photos/:id
+    if params[:album_id].nil?
+      photo = Photo.find(params[:id])
+      redirect_to album_photo_path(photo.album_id,photo.id) and return
+    end
+    
+    get_album  
     @photo = @album.photos.find(params[:id])
-  
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @photo }
@@ -95,7 +109,12 @@ class PhotosController < ApplicationController
   private
   
   def get_album
-    @album = Album.find(params[:album_id])
+    if params[:album_id].nil?
+      render :text => "No such action"
+      return false
+    else
+      @album = Album.find(params[:album_id])
+    end
   end
   
 end
