@@ -5,8 +5,22 @@
 <h2><%= h @photo.title %></h2>
 <p><%= h @photo.description %></p>
 
-<%= image_tag	@photo.public_filename %>
+Show size:
 <br />
+<%= image_tag @photo.photo.url %>
+<br />
+Thumbnail size:
+<br />
+<%= image_tag @photo.photo.url(:thumb) %>
+<br />
+Tiny size:
+<br>
+<%= image_tag @photo.photo.url(:tiny) %>
+<br />
+Poster:
+<br>
+<%= image_tag @photo.photo.url(:poster) %>
+<br>
 
 <%= link_to 'Edit', edit_album_photo_path(@album,@photo) %> |
 <%= link_to 'Back', album_photos_path(@album) %> |

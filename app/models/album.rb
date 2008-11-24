@@ -5,4 +5,12 @@ class Album < ActiveRecord::Base
   def has_comments?
     comments.size > 0
   end
+  
+  def poster
+    photos.first
+  end
+  
+  def empty?
+    photos.empty?
+  end
 end

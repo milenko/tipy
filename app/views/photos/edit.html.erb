@@ -1,24 +1,9 @@
 <h2>Edit photo details</h2>
 
-<%= link_to image_tag(@photo.public_filename 'thumb'),
+<%= link_to image_tag(@photo.photo.url(:thumb)),
  											album_photo_path(:album_id => @photo.album, :id => @photo) %>
 
-<% form_for([@album,@photo]) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+<%= render :partial => "form" %>
 
 <%= link_to 'Show', album_photo_path(@album,@photo) %> |
 <%= link_to 'Back', album_photos_path(@album) %>

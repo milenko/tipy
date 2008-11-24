@@ -1,0 +1,9 @@
+<li>
+	<%- unless album_thumb.empty? -%>
+		<%= link_to image_tag(album_thumb.poster.photo.url(:poster)),
+								album_path(album_thumb) %>
+	<%- else -%>
+		<%= link_to album_thumb.title,
+								album_path(album_thumb) %>
+	<%- end -%>
+</li>
