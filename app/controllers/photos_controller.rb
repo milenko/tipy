@@ -44,6 +44,7 @@ class PhotosController < ApplicationController
   # GET /albums/:album_id/photos/new.xml
   def new
     @photo = Photo.new
+    #@photo.album_id = params[:album_id]
   
     respond_to do |format|
       format.html # new.html.erb
@@ -62,8 +63,12 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.xml
   def create
-    @photo = Photo.new(params[:photo])
-    @photo.album_id = params[:album_id]
+    ##
+    # Note that we would normaly use:
+    # @photo = @album.photos.new(params[:photo])
+    # but we need album_id initialized before photo
+    @photo = Photo.new(:album_id => params[:album_id])
+    @photo.attributes = params[:photo]
   
     respond_to do |format|
       if @album.photos << @photo
