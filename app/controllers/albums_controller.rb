@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_filter :check_authentication, :except => [:index, :show]
+  
   # GET /albums
   # GET /albums.xml
   def index

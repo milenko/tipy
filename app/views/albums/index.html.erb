@@ -6,4 +6,6 @@
 
 <br />
 
-<%= link_to 'New album', new_album_path %>
+<%- if logged_in? -%>
+	<%= link_to 'New album', new_album_path %>
+<%- end -%>

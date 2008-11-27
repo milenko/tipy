@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  #before_filter :check_authentication, :only => [:create]
+  before_filter :check_authentication, :except => [:index, :show]
   
   # GET /posts
   # GET /posts.xml
@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
+      format.rss # index.rss.builder
     end
   end
 

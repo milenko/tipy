@@ -43,4 +43,9 @@ class Photo < ActiveRecord::Base
     album.title
   end
   
+  def self.find_for_sitemap
+    find(:all, :select => 'id, updated_at',
+               :order => 'updated_at DESC',
+               :limit => 30000)
+  end
 end

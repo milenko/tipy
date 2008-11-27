@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :get_album, :except => [:index, :show]
+  before_filter :check_authentication, :except => [:index, :show]
   
   # GET /album/:album_id/photos
   # GET /album/:album_id/photos.xml

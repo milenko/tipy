@@ -6,4 +6,6 @@
 
 <br />
 
-<%= link_to 'New photo', new_album_photo_path(@album) %>
+<%- if logged_in? -%>
+	<%= link_to 'New photo', new_album_photo_path(@album) %>
+<%- end -%>

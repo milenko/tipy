@@ -4,12 +4,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>My Blog</title>
+  <%= page_title %>
+	<%= meta "description", meta_description %>
+	<%= meta "keywords", meta_keywords %>
   <%= stylesheet_link_tag 'scaffold', 'application' %>
+	<%= auto_discovery_link_tag :rss, :controller => 'posts',
+																		:action => 'index',
+																		:format => 'rss' %>
 </head>
 <body>
 
 <p style="color: green"><%= flash[:notice] %></p>
+
+<p>
+	<% if logged_in? -%>
+		<%= link_to "Logout", session_path, :method => :delete %>
+	<% else -%>
+		<%= link_to "Login", new_session_path %>
+	<% end -%>
+</p>
+<br>
 
 <%= yield  %>
 

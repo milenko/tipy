@@ -1,3 +1,5 @@
+<% @page_title = @post.title %>
+
 <ul class="chapters">
 	<h2>
 		<li>
@@ -23,5 +25,7 @@
 	<%= render :partial => "comments/form", :locals => {:parent => @post}  %>
 </li>
 
-<p><%= link_to 'Edit', edit_post_path(@post) %> |
+<%- if logged_in? -%>
+	<p><%= link_to 'Edit', edit_post_path(@post) %> |
+<%- end -%>
 <%= link_to 'Back', posts_path %></p>

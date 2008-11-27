@@ -1,3 +1,4 @@
+<% @page_title = @album.title %>
 <h2>
   <%=h @album.title %>
 </h2>
@@ -16,6 +17,8 @@
   <%=h @album.location %>
 </p>
 
-<%= link_to "all photos", album_photos_path(@album) %>
-<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to "all photos", album_photos_path(@album) %> |
+<%- if logged_in? -%>
+	<%= link_to 'Edit', edit_album_path(@album) %> |
+<%- end -%>
 <%= link_to 'Back', albums_path %>

@@ -2,7 +2,12 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :photos, :has_many => [:comments]
   map.resources :albums, :has_many => [:photos, :comments]
-  map.resources :posts, :has_many => [:comments] 
+  map.resources :posts, :has_many => [:comments]
+  
+  map.resource :user
+  map.resource :session
+  
+  map.sitemap 'sitemap.xml', :controller => 'sitemap', :action => 'sitemap', :format => 'xml'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -16,12 +16,30 @@ class ApplicationController < ActionController::Base
   private
   
   def check_authentication
-    unless session[:user]
-      session[:requested_uri] = request.env["REQUEST_URI"]
-      redirect_to sign_in_url
-    else
-      @user = User.find(session[:user])
+    respond_to do |format|
+      format.html do
+        unless session[:user_id]
+          debugger
+          session[:requested_uri] = request.env["REQUEST_URI"]
+          flash[:notice] = "Please log in"
+          redirect_to new_session_url
+        else
+          @user = User.find(session[:user_id])
+        end
+      end
+      
+      format.xml do
+        usr = authenticate_with_http_basic do |login, password|
+          User.authenticate(login, password)
+        end
+        if usr
+          @user = usr
+        else
+          request_http_basic_authentication
+        end
+      end
     end
+    
   end
   
 end

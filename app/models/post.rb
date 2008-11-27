@@ -30,4 +30,9 @@ class Post < ActiveRecord::Base
     comments.size > 0
   end
   
+  def self.find_for_sitemap
+    find(:all, :select => 'id, updated_at',
+               :order => 'updated_at DESC',
+               :limit => 19000)
+  end
 end

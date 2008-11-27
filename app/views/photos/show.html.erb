@@ -1,3 +1,5 @@
+<% @page_title = @photo.title unless @photo.title.blank? %>
+
 <h3>
 	<%= link_to "#{@photo.album.title}'s Photos",
 	 						album_photos_path(@album) %>
@@ -22,11 +24,14 @@ Poster:
 <%= image_tag @photo.photo.url(:poster) %>
 <br>
 
-<%= link_to 'Edit', edit_album_photo_path(@album,@photo) %> |
-<%= link_to 'Back', album_photos_path(@album) %> |
-<%= link_to 'Delete', album_photo_path(@album,@photo),
- 											:confirm => 'Are you sure?', 
-											:method => :delete %>
+<%- if logged_in? -%>
+	<%= link_to 'Edit', edit_album_photo_path(@album,@photo) %> |
+
+	<%= link_to 'Delete', album_photo_path(@album,@photo),
+	 											:confirm => 'Are you sure?', 
+												:method => :delete %> |
+<%- end -%>
+<%= link_to 'Back', album_photos_path(@album) %>
 											
 <% if @photo.has_comments? -%>
 	<li>
