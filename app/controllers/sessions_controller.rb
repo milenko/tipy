@@ -1,9 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    debugger
     session[:requested_uri] = request.env["HTTP_REFERER"] unless session[:requested_uri]
-    #@back = session[:requested_uri]
-    #@cur = request.env["REQUEST_URI"]
   end
   
   def create

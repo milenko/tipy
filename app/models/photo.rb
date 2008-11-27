@@ -2,7 +2,6 @@ class Photo < ActiveRecord::Base
   @@PolaroidFont = '-font aaaiight! -pointsize 16 -gravity center '
   @@PolaroidColors = '-bordercolor white -background black '
   
-  
   belongs_to :album
   has_many :comments, :as => :commentable
   

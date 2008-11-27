@@ -19,9 +19,9 @@ module Paperclip
 
     ##
     # Testing, I'll refactor this into a monkey_patch if it works
-    def convert_options
-      @convert_options.respond_to?('call') ? @convert_options.call(@instance) : @convert_options
-    end
+    #def convert_options
+    #  @convert_options.respond_to?('call') ? @convert_options.call(@instance) : @convert_options
+    #end
 
 
     # Creates an Attachment object. +name+ is the name of the attachment, +instance+ is the

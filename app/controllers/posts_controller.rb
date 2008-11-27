@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   
   # GET /posts
   # GET /posts.xml
+  # GET /posts.rss
   def index
     @posts = Post.find_descending
 

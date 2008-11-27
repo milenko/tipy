@@ -19,7 +19,6 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       format.html do
         unless session[:user_id]
-          debugger
           session[:requested_uri] = request.env["REQUEST_URI"]
           flash[:notice] = "Please log in"
           redirect_to new_session_url

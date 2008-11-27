@@ -1,3 +1,10 @@
+slozenije stvari za diplomski:
+	- polimorfne relaceije : Comment model
+	- SEO : dinamicki title, description, keywords, sitemap
+	- RSS
+	- file uploads : paperclip
+	- REST authentication
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create 
