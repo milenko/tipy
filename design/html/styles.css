@@ -75,6 +75,39 @@ body {
 	margin-right: 16px;
 }
 
+/* comments */
+.comment {
+	margin-top: 20px;
+	margin-left: 40px;
+	margin-right: 20px;
+}
+
+.comment-header {
+	background-image: url("assets/post-header-line.png");
+	background-repeat: repeat-x;
+	background-position: center;
+	font-family: "Candara";
+	font-size: 11pt;
+	font-weight: lighter;
+}
+
+.comment-author {
+	padding-right: 5px;
+	background-color: white;
+	float: left;
+}
+
+.author-detail {
+	font-weight: bold;
+}
+
+.comment-header-right {
+	padding-left: 5px;
+	background-color: white;
+	float: right;
+}
+/* end of comments */
+
 div.left {
 	margin-left: 50px;
 	width: 55%;

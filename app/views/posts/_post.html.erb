@@ -13,6 +13,10 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-	<p><%= post.body %> <%= link_to "read more", post, :class => "curly"%>
+	<p>
+		<%= post.body %>
+		<% if read_more %>
+			<%=link_to "read more", post, :class => "curly"%>
+		<% end %>
 	</p>
 </div>

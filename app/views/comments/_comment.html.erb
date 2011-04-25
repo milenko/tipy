@@ -1,7 +1,23 @@
-<li>
-	<p>
-		<%= mail_to comment.email, comment.name, :replace_at => " (at) ", :replace_dot => "_dot_",  :encode => "hex", :class => "commenter"  %>
-		said
-	</p>
+<div class="comment">
+	<div class="comment-header">
+		<div class="comment-author">				
+			<%- if !comment.email.blank? -%>
+				<%= mail_to comment.email, comment.display_name, :replace_at => "(at)",
+												 				:replace_dot => "_dot_",
+												 				:encode => "hex",
+												 				:class => "author-detail" %>
+			<%- else -%>
+				<span class="author-detail"><%= comment.display_name %></span>
+			<%- end -%>
+			
+			<%- if !comment.display_blog_name.nil? -%>
+				from
+				<%= link_to comment.blog_name, comment.blog_url, :class => "author-detail" %>
+			<%- end -%>
+			says
+		</div>
+		<div class="comment-header-right">+2</div>
+		<div class="clear"></div>
+	</div>
 	<p><%= comment.body %></p>
-</li>
+</div>

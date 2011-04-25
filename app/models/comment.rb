@@ -11,4 +11,23 @@ class Comment < ActiveRecord::Base
     end
   end
   
+  def display_name
+    if !name.blank?
+      name
+    elsif !email.blank?
+      email
+    else
+      "Anonymous"
+    end
+  end
+  
+  def display_blog_name
+    if !blog_name.blank?
+      blog_name
+    elsif !blog_url.blank?
+      blog_url
+    else
+      nil
+    end
+  end
 end

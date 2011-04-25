@@ -4,7 +4,8 @@
 
 <div class="left">
 	<%# Rails 2.0 magic %>
-	<%= render :partial => @posts, :locals => {:render_comments_count => true} %>
+	<%= render :partial => @posts, :locals => {:render_comments_count => true,
+											   :read_more => true } %>
 </div>
 
 <%- if logged_in? -%>
