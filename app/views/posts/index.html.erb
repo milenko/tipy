@@ -1,11 +1,11 @@
 <% @page_title = 'Posts' %>
 
-<%= link_to "RSS feed", formatted_posts_url(:rss) %>
+<%= link_to "RSS feed", posts_url(:format => :rss) %>
 
-<ul class="chapters">
+<div class="left">
 	<%# Rails 2.0 magic %>
-	<%= render :partial => @posts  %>
-</ul>
+	<%= render :partial => @posts, :locals => {:render_comments_count => true} %>
+</div>
 
 <%- if logged_in? -%>
 	<%= link_to 'New post', new_post_path %>

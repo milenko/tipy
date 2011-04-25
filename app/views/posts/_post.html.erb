@@ -1,8 +1,18 @@
-<li>
-	<h2>
-		<div class="chapter_position">•</div>
-		<%# Rails 2.0 magic: ne mora vise post_path(post) %>
-		<%= link_to post.title, post %>
-	</h2>
-	<p><%= post.body %></p>
-</li>
+<div class="post">
+	<div class="post-header">
+		<div class="post-title"><%= link_to post.title, post%></div>
+		<div class="post-header-right">
+			<div style="height: 5px"></div>
+			<div>
+				<%= post.created_at.to_s(:concise)%>
+				<% if render_comments_count %>
+					<img src="/assets/comment-balloon.png" alt="Comments: " />
+					<%= post.comments.count %>
+				<% end %>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<p><%= post.body %> <%= link_to "read more", post, :class => "curly"%>
+	</p>
+</div>

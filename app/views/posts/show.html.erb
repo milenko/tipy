@@ -1,24 +1,18 @@
 <% @page_title = @post.title %>
 
-<ul class="chapters">
-	<h2>
-		<li>
-			<div class="chapter_position">•</div>
-			<%= @post.title %>
-		</li>
-	</h2>
-	<p><%= @post.body %></p>
-</ul>
-
-<% if @post.has_comments? -%>
-<li>
-	<h3>Comments</h3>
-	<ul class="comments">
-		<%= render :partial => "comments/comment",
-				   		 :collection => @post.comments %>
-	</ul>
-</li>
-<% end -%>
+<div class = "left">
+	<%= render :partial => @post, :locals => {:render_comments_count => false}%>
+	
+	<% if @post.has_comments? -%>
+	<li>
+		<h3>Comments</h3>
+		<ul class="comments">
+			<%= render :partial => "comments/comment",
+					   		 :collection => @post.comments %>
+		</ul>
+	</li>
+	<% end -%>
+</div>
 
 <li>
 	<h3>Add your comment!</h3>

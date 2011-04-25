@@ -1,19 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta charset="UTF-8">
   <%= page_title %>
 	<%= meta "description", meta_description %>
 	<%= meta "keywords", meta_keywords %>
-  <%= stylesheet_link_tag 'scaffold', 'application' %>
+  <%= stylesheet_link_tag 'default', 'scaffold', 'application' %>
 	<%= auto_discovery_link_tag :rss, :controller => 'posts',
 																		:action => 'index',
 																		:format => 'rss' %>
 </head>
 <body>
-
+	<div class="header">
+		<div class="header-left"></div>
+		<div class="header-right"></div>
+		<div class="clear"></div>
+	</div>
+	
 <p style="color: green"><%= flash[:notice] %></p>
 
 <p>
@@ -27,5 +31,46 @@
 
 <%= yield  %>
 
+	<div class="clear"></div>
+	<div class="footer">
+		<div class="footer-contents">
+			<div class="footer-left">
+				<div class="head">other<span class="bold">pages</span></div>
+			</div>
+			<div class="footer-center">
+				<div class="head">about<span class="bold">me</span></div>
+			</div>
+			<div class="footer-right">
+				<div class="head">services<span class="bold">provided</span></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="footer-hr"><%= image_tag "footer-hr.png" %></div>
+		<div class="footer-contents">
+			<div class="footer-left">
+				<div class="footer-link"><a class="small-link" href="#">all posts</a></div>
+				<div class="footer-link"><a class="small-link" href="#">categories</a></div>
+				<div class="footer-link"><a class="small-link" href="#">all photos</a></div> 
+				<div class="footer-link"><a class="small-link" href="#">albums</a></div> 
+				<div class="footer-link"><a class="small-link" href="#">videos</a></div> 
+				<div class="footer-link"><a class="small-link" href="#">downloads</a></div>
+			</div>
+			<div class="footer-center">
+				<div class="footer-link"><a class="small-link" href="#">about me</a></div>
+				<div class="footer-link"><a class="small-link" href="#">software engineering</a></div>
+				<div class="footer-link"><a class="small-link" href="#">quantitative finance</a></div> 
+				<div class="footer-link"><a class="small-link" href="#">projects</a></div> 
+				<div class="footer-link"><a class="small-link" href="#">magic</a></div> 
+				<div class="footer-link"><a class="small-link" href="#">CV</a></div>
+			</div>
+			<div class="footer-right">
+				<div class="footer-link"><a class="small-link" href="#">web design</a></div> 
+				<div class="footer-link"><a class="small-link" href="#">Ruby on Rails developing</a></div> 
+				<div class="footer-link"><a class="small-link" href="#">Cocoa [Touch] developing</a></div> 
+				<div class="footer-link"><a class="small-link" href="#">video editing</a></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,16 +1,16 @@
-* {
+/** {
 	margin: 0;
 	padding: 0;
-}
+}*/
 
-body {
+/*body {
 	margin: 1em;
 }
 
 body, p, input {
 	font-family: Georgia, serif;
 	font-size: 14px;
-}
+}*/
 
 h1 {
 	margin-bottom: 1em;
@@ -38,25 +38,25 @@ ol, ul, td {
   line-height: 18px;
 }
 
-p {
+/*p {
 	margin-left: 4em;
 	width: 60%;
-}
+}*/
 
 /*pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }*/
-:link {
+/*:link {
 	color: #000;
 	/*text-decoration: underline;
-	text-decoration-style: dotted;*/
+	text-decoration-style: dotted;*
 	text-decoration: none;
 	border-bottom: 1px dotted;
-}
-:visited { color: #666; }
-:link:hover { color: #fff; background-color:#000; }
+}*/
+/*:visited { color: #666; }
+:link:hover { color: #fff; background-color:#000; }*/
 
 /*
  * Fali jedno 20 linija ovde

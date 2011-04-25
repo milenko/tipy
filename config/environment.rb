@@ -5,8 +5,11 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.1.1' unless defined? RAILS_GEM_VERSION
+  RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 
+# FixMe
+# Add hack for compatilibility with the latest RubyGems
+require 'thread'
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
@@ -64,4 +67,6 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+  
+  Time::DATE_FORMATS[:concise] = "%b %d, %Y"
 end

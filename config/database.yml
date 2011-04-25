@@ -3,7 +3,7 @@
 development: &defaults
   adapter: mysql
   database: tipy_dev
-  username: root
+  username: tipy
   password: hoopsr
   host: localhost
 

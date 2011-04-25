@@ -1,3 +1,8 @@
 #!/usr/bin/env ruby
+
+# FixMe
+# Compatibility with the latest Ruby Gems
+require 'thread'
+
 require File.dirname(__FILE__) + '/../config/boot'
 require 'commands/server'
