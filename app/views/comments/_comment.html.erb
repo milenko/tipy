@@ -16,7 +16,9 @@
 			<%- end -%>
 			says
 		</div>
-		<div class="comment-header-right">+2</div>
+		<div class="comment-header-right">
+			<%= comment.created_at.to_s(:concise) %>
+		</div>
 		<div class="clear"></div>
 	</div>
 	<p><%= comment.body %></p>

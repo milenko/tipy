@@ -2,6 +2,13 @@ class Album < ActiveRecord::Base
   has_many :photos
   has_many :comments, :as => :commentable
   
+  named_scope :recent,
+              lambda { |*args| 
+                {:order => "updated_at DESC",
+                 :limit => (args.first || 2)
+                }
+              }
+  
   def has_comments?
     comments.size > 0
   end

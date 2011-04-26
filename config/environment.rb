@@ -69,4 +69,5 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
   
   Time::DATE_FORMATS[:concise] = "%b %d, %Y"
+  Time::DATE_FORMATS[:extra_concise] = "%b %y"
 end

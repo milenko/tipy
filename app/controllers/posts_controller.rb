@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   # GET /posts.rss
   def index
     @posts = Post.find_descending
+    @recent_albums = Album.recent
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +19,8 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
+    @recent_posts = Post.latest
+    @recent_albums = Album.recent
 
     respond_to do |format|
       format.html # show.html.erb

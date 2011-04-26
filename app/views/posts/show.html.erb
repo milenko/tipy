@@ -1,9 +1,9 @@
 <% @page_title = @post.title %>
 
-<div class = "left">
+<div class="left">
 	<%= render :partial => @post, :locals => {:render_comments_count => false,
-											  :read_more => false}%>
-	
+												  :read_more => false}%>
+		
 	<% if @post.has_comments? -%>
 		<div class="comments">
 			<div class="post-header">
@@ -23,6 +23,20 @@
 	<% end -%>
 </div>
 
+<div class="right">
+	<div class="head">site<span class="bold">search</span></div>
+	<form class="search-form" action="#" method="post"><input type="search" placeholder="not yet functional" size="27" /></form>
+	
+	<div class="sidebar_element">
+		<div class="head">recent<span class="bold">posts</span></div>
+		<%= render :partial => "post_sidebar", :collection => @recent_posts %>
+	</div>
+	
+	<div class="sidebar_element">
+		<div class="head">recent<span class="bold">albums</span></div>
+		<%= render :partial => "albums/album_icon", :collection => @recent_albums %>
+	</div>
+</div>
 
 
 <p><%- if logged_in? -%>

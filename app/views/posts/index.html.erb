@@ -2,11 +2,10 @@
 
 <%= link_to "RSS feed", posts_url(:format => :rss) %>
 
-<div class="left">
+	<%- @ra = @recent_albums -%>
 	<%# Rails 2.0 magic %>
 	<%= render :partial => @posts, :locals => {:render_comments_count => true,
 											   :read_more => true } %>
-</div>
 
 <%- if logged_in? -%>
 	<%= link_to 'New post', new_post_path %>

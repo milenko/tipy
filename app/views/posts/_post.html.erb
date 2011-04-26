@@ -3,7 +3,7 @@
 		<div class="post-title"><%= link_to post.title, post%></div>
 		<div class="post-header-right">
 			<div style="height: 5px"></div>
-			<div>
+			<div class="date">
 				<%= post.created_at.to_s(:concise)%>
 				<% if render_comments_count %>
 					<img src="/assets/comment-balloon.png" alt="Comments: " />
