@@ -1,0 +1,21 @@
+<div class="head">site<span class="bold">search</span></div>
+<form class="search-form" action="#" method="post"><input type="search" placeholder="not yet functional" size="27" /></form>
+
+<div class="sidebar_element">
+	<div class="head">social<span class="bold">feeds</span></div>
+	<%= link_to "RSS feed", posts_url(:format => :rss) %>
+</div>
+
+<%- if sidebar[:posts] -%>
+<div class="sidebar_element">
+	<div class="head">recent<span class="bold">posts</span></div>
+	<%= render :partial => "post_sidebar", :collection => sidebar[:posts] %>
+</div>
+<%- end -%>
+
+<%- if sidebar[:albums] -%>
+<div class="sidebar_element">
+	<div class="head">recent<span class="bold">albums</span></div>
+	<%= render :partial => "albums/album_icon", :collection => sidebar[:albums] %>
+</div>
+<%- end -%>

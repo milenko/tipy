@@ -1,6 +1,6 @@
 <div class="post">
 	<div class="post-header">
-		<div class="post-title"><%= link_to post.title, post%></div>
+		<div class="post-title"><%= title_link ? link_to(post.title, post) : post.title %></div>
 		<div class="post-header-right">
 			<div style="height: 5px"></div>
 			<div class="date">
@@ -14,9 +14,6 @@
 		<div class="clear"></div>
 	</div>
 	<p>
-		<%= post.body %>
-		<% if read_more %>
-			<%=link_to "read more", post, :class => "curly"%>
-		<% end %>
+		<%= trim ? truncate_html(post.body, 300, " "+link_to("read more", post, :class => "curly")) : post.body %>
 	</p>
 </div>

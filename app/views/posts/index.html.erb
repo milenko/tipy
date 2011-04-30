@@ -1,11 +1,15 @@
 <% @page_title = 'Posts' %>
 
-<%= link_to "RSS feed", posts_url(:format => :rss) %>
-
-	<%- @ra = @recent_albums -%>
+<div class="left">
 	<%# Rails 2.0 magic %>
 	<%= render :partial => @posts, :locals => {:render_comments_count => true,
-											   :read_more => true } %>
+											   :title_link => true,
+											   :trim => true } %>
+</div>
+
+<div class="right">
+	<%= render :partial => "shared/sidebar", :object => {:albums => @recent_albums} %>
+</div>
 
 <%- if logged_in? -%>
 	<%= link_to 'New post', new_post_path %>

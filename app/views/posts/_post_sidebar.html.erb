@@ -1,5 +1,5 @@
 <div class="recent_post">
 	<span class="date"><%= post_sidebar.updated_at.to_s(:extra_concise) %></span>
 	-
-	<%= link_to truncate(post_sidebar.title, :length => 23, :omission => "..."), post_path(post_sidebar) %>
+	<%= link_to truncate_html(post_sidebar.title, 23), post_path(post_sidebar) %>
 </div>

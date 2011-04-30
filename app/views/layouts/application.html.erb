@@ -18,16 +18,7 @@
 		<div class="clear"></div>
 	</div>
 	
-	<p style="color: green"><%= flash[:notice] %></p>
-	
-	<p>
-		<% if logged_in? -%>
-			<%= link_to "Logout", session_path, :method => :delete %>
-		<% else -%>
-			<%= link_to "Login", new_session_path %>
-		<% end -%>
-	</p>
-	<br>
+	<%- if flash[:notice] -%><p style="color: green"><%= flash[:notice] %></p><%- end -%>
 
 	<%= yield  %>
 
